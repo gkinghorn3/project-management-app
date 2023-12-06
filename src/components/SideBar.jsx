@@ -2,7 +2,7 @@ import { ListPlus } from "lucide-react";
 
 import Button from "./Button";
 
-export default function Sidebar({onStartAddProject, projects}) {
+export default function Sidebar({onStartAddProject, projects, onSelect, selectedProjectId}) {
 
     return (
         <aside className="w-1/3 min-w-max md:w-72 px-8 py-16 bg-stone-900 text-stone-50 rounded-r-lg">
@@ -15,13 +15,24 @@ export default function Sidebar({onStartAddProject, projects}) {
             <ul>
                 {
                     projects.map(
-                        (project) => (
-                            <li className="my-8 bg-stone-300 rounded-md p-4" key={project.id} >
-                                <h3 className="font-bold text-stone-800">{project.title}</h3>
-                                <p className="text-sm text-stone-800">{project.description}</p>
-                                <p className="font-italic text-stone-800">{project.dueDate.toString()}</p>
-                            </li>
-                        )
+                        (project) => {
+
+                            let cssClasses = "w-full text-left px-2 py-1 rounded-sm my-4  hover:bg-stone-300 hover:text-stone-700"
+
+                            if (selectedProjectId === project.id) {
+                                cssClasses += " bg-stone-300 text-stone-700"
+                            } else {
+                                cssClasses += " text-stone-100"
+                            }
+
+                            return (<li className="" key={project.id} >
+                                <button className={cssClasses}
+                                onClick={() => onSelect(project.id)}
+                                >
+                                    {project.title}
+                                </button>
+                            </li>)
+                        }
                     )
                 }
             </ul>
