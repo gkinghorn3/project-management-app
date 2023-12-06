@@ -6,14 +6,19 @@
 
     function handleChange(event) {
       setEnteredTask(event.target.value)
-      console.log(enteredTask)
+      
+    }
+
+    function handleClick() {
+      onAddTask(enteredTask);
+      setEnteredTask("");
     }
 
 
     return (
         <div className="flex items-center gap-4">
             <input type="text" className="w-64 px-2 py-1 rounded-sm bg-stone-200" value={enteredTask} onChange={handleChange}/> 
-            <button onClick={() => onAddTask(enteredTask)} className="text-stone-700 hoever:text-stone-950 font-bold">Add Task</button>    
+            <button onClick={() => handleClick()} className="text-stone-700 hoever:text-stone-950 font-bold">Add Task</button>    
         </div>
     )
 
