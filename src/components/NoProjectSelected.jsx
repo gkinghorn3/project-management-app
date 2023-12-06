@@ -7,8 +7,8 @@ export default function NoProjectSelected({onStartAddProject}) {
       <img className="w-16 h-16 object-contain mx-auto" src={noProjectImage} />
       <h2 className="text-xl font-bol text-stone-500 my-4">No project selected</h2>
       <p>Select a project or get started with a new one</p>
-      <p className="flex flex-col items-center">
-        <Button onClick={onStartAddProject}>  Create new project  </Button>
+      <p className="flex flex-col items-center my-8">
+        <Button  onClick={onStartAddProject}>  Create new project  </Button>
       </p>
     </div>
   );

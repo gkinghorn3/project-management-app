@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import Input from "./Input";
 
-export default function NewProject() {
+export default function NewProject({onAddProject}) {
   const title = useRef();
   const description = useRef();
   const dueDate = useRef();
@@ -11,7 +11,16 @@ export default function NewProject() {
     const enteredTitle = title.current.value;
     const enteredDescription = description.current.value;
     const enteredDueDate = dueDate.current.value;
+
+    onAddProject({
+      id: Math.random().toString(),
+      title: enteredTitle,
+      description: enteredDescription,
+      dueDate: enteredDueDate
+    })
   }
+
+
 
   return (
     <div className="w-[35rem] mt-16">
