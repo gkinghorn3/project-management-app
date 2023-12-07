@@ -10,6 +10,10 @@
     }
 
     function handleClick() {
+
+      if (enteredTask.trim().length === 0) {
+        return;
+      }
       onAddTask(enteredTask);
       setEnteredTask("");
     }
